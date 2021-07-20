@@ -27,7 +27,6 @@ const seedDB = async () => {
         })
         await camp.save();
     }
-    
 }
 
 seedDB().then(() => {
