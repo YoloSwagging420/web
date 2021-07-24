@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const productSchema = mongoose.Schema({
     name: {
         type: String,
-        require: true
+        require: [true, 'name cannot be blank']
     },
     price: {
         type: Number,
