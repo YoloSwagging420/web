@@ -21,6 +21,8 @@
                 <a href="/campgrounds"><button class="btn btn-success">Return to All Campgrounds Page</button></a>
             </div>
         </div>
+    </div>
+    <div class="col-6">
         <h2>Leave a Review</h2>
         <form action="/campgrounds/<%= campground._id%>/reviews" class="mb-3 validated-form" method="POST" novalidate>
             <div class="mb-3">
@@ -34,12 +36,16 @@
             <button class="btn btn-success">Submit</button>
         </form>
         <% for(let review of campground.reviews) { %>
-            <div class="mb-3"></div>
-                <p>Rating: <%= review.rating %> Stars</p>
-                <p>Review: <%= review. body %> </p>
-            </div> 
+            <div class="card mb-3 ">
+                <div class="card-body">
+                    <h5 class="card-title">Rating: <%= review.rating %> Stars</h5>
+                    <p class="card-text">Review: <%= review. body %></p>
+                    <form action="/campgrounds/<%=campground._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </div> 
+            </div>
         <% } %>
-               
     </div>
 </div>
     
